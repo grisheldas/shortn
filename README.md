@@ -1,69 +1,116 @@
-# React + TypeScript + Vite
+# 🔗 Shortn — URL Shortener & QR Code Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Shortn is my mini project that lets you shorten URLs, generate downloadable QR codes, and track link analytics. Built with modern tools like **React 19**, **TypeScript**, **Tailwind CSS**, and **Supabase**, Shortn is your all-in-one link management tool.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📚 Table of Contents
 
-## Expanding the ESLint configuration
+- [Features](#-features)
+- [Demo](#-demo)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Configuration](#-configuration)
+- [FAQs](#-faqs)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- 🔒 **Authentication** — Secure sign-up/login system powered by Supabase
+- 🔗 **Link Shortening** — Generate clean, trackable short links
+- 📁 **Link History** — All shortened links are saved to your account
+- 📈 **Smart Analytics** — Track:
+  - Total click count
+  - Country of visitor 🌍
+  - Device type (mobile, tablet, desktop) 📱💻
+- 🆓 **Free QR Code Generation** — Instant, downloadable QR codes with no watermark
+- 🌙 **Dark Mode Support** — Stylish, accessible UI with modern themes
+- ⚡ **Fast & Lightweight** — Powered by Vite, React 19, and Tailwind
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🚀 Demo
+
+Coming soon…
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Lucide React Icons](https://lucide.dev/)
+
+**DB:**
+
+- [Supabase](https://supabase.com/) (Auth + Realtime DB)
+
+**Tooling & Dev Experience:**
+
+- ESLint, TypeScript, Previews via Vite
+- `clsx`, `class-variance-authority`, `yup` for logic and styling
+
+---
+
+## 🧰 Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/grisheldas/shortn.git
+cd shortn
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Install dependencies**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. **Run the app in development**
+
+```bash
+npm run dev
+```
+
+4. **Build for production**
+
+```bash
+npm run build
+```
+
+---
+
+## 📦 Scripts
+
+| Script            | Description                    |
+| ----------------- | ------------------------------ |
+| `npm run dev`     | Start development server       |
+| `npm run build`   | Compile TypeScript & build app |
+| `npm run preview` | Preview production build       |
+| `npm run lint`    | Run ESLint checks              |
+
+---
+
+## ⚙️ Configuration
+
+Create a .env file in the root of the project and set the following Supabase variables:
+
+```bash
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+
+```
+
+Make sure these keys are set correctly before running the app.
+
+---
