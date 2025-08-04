@@ -1,15 +1,27 @@
 import Login from "@/components/login";
 import Signup from "@/components/signup";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useSearchParams } from "react-router-dom";
-import React from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { UrlState } from "@/context";
 
 function AuthPage() {
   const [searchParams] = useSearchParams();
+  const longUrl = searchParams.get("createNew");
+
+  const navigate = useNavigate();
+
+  const { isAuthenticated, loading } = UrlState();
+
+  useEffect(() => {
+    if (isAuthenticated && !loading) {
+      navigate(`/dashboard?${longUrl ? `createNew=${longUrl}` : ""}`);
+    }
+  }, [isAuthenticated, loading]);
 
   return (
     <div className="flex flex-col gap-16 items-center">
-      {searchParams.get("createNew") ? (
+      {longUrl ? (
         <div className="text-center mt-10 sm:mt-16">
           <h2 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold">
             Oops!
@@ -20,7 +32,14 @@ function AuthPage() {
           </h1>
         </div>
       ) : (
-        <></>
+        <div className="text-center mt-10 sm:mt-16">
+          <h2 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold">
+            Login / Signup
+          </h2>
+          <h1 className="mt-5 text-xl sm:text-2xl lg:text-4xl font-bold">
+            Dont worry, your data is safe with us!
+          </h1>
+        </div>
       )}
 
       <Tabs defaultValue="login" className="w-[400px]">

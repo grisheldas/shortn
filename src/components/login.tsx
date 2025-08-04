@@ -16,6 +16,7 @@ import * as yup from "yup";
 import useFetch from "@/hooks/use-fetch";
 import { login } from "@/db/apiAuth";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { UrlState } from "@/context";
 
 function Login() {
   const navigate = useNavigate();
@@ -26,8 +27,6 @@ function Login() {
     email: "",
     password: "",
   });
-
-  const { data, loading, error, execute: submitLogin } = useFetch(login);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -66,9 +65,13 @@ function Login() {
     }
   };
 
+  const { data, loading, error, execute: submitLogin } = useFetch(login);
+  const { fetchUser } = UrlState();
+
   useEffect(() => {
     if (error === null && data) {
       navigate(`/dashboard?${longUrl ? `createNew=${longUrl}` : ""}`);
+      fetchUser();
     }
   }, [data, error]);
 
@@ -100,7 +103,7 @@ function Login() {
       </CardContent>
       <CardFooter className="flex justify-end gap-5">
         {error && <Error message={error?.message} />}
-        <Button onClick={handeLogin} className="w-[90px]">
+        <Button onClick={handeLogin} disabled={loading} className="w-[90px]">
           {loading ? <BeatLoader size={6} /> : "Login"}
         </Button>
       </CardFooter>
