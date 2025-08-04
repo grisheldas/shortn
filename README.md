@@ -10,11 +10,11 @@ Shortn is my mini project that lets you shorten URLs, generate downloadable QR c
 - [Demo](#-demo)
 - [Tech Stack](#-tech-stack)
 - [Installation](#-installation)
-- [Usage](#-usage)
-- [Configuration](#-configuration)
-- [FAQs](#-faqs)
+- [Usage](#-scripts)
+- [Configuration](#️-configuration)
+<!-- - [FAQs](#-faqs)
 - [Contributing](#-contributing)
-- [License](#-license)
+- [License](#-license) -->
 
 ---
 
