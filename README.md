@@ -103,7 +103,7 @@ npm run build
 
 ## ⚙️ Configuration
 
-Create a .env file in the root of the project and set the following Supabase variables:
+Create a `.env` file in the root of the project and set the following Supabase variables:
 
 ```bash
 VITE_SUPABASE_URL=your-supabase-url
